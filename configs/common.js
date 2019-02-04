@@ -33,28 +33,6 @@ module.exports = {
             options: {
               name: "img/[name].[hash:7].[ext]"
             }
-          },
-          {
-            loader: "image-webpack-loader",
-            options: {
-              mozjpeg: {
-                progressive: true,
-                quality: 65
-              },
-              optipng: {
-                enabled: true
-              },
-              pngquant: {
-                quality: 65,
-                speed: 4
-              },
-              gifsicle: {
-                interlaced: true
-              },
-              webp: {
-                quality: 75
-              }
-            }
           }
         ]
       },
@@ -65,7 +43,7 @@ module.exports = {
             loader: "url-loader",
             options: {
               limit: 10000,
-              name: "fonts/[name].[ext]"
+              name: "fonts/[name].[hash:7].[ext]"
             }
           }
         ]

@@ -1,3 +1,4 @@
+const path = require("path");
 const merge = require("webpack-merge");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
@@ -37,6 +38,33 @@ module.exports = merge(common, {
         ]
       },
       {
+        test: /\.(gif|png|jpe?g|svg)$/i,
+        use: [
+          {
+            loader: "image-webpack-loader",
+            options: {
+              mozjpeg: {
+                progressive: true,
+                quality: 65
+              },
+              optipng: {
+                enabled: true
+              },
+              pngquant: {
+                quality: 65,
+                speed: 4
+              },
+              gifsicle: {
+                interlaced: true
+              },
+              webp: {
+                quality: 75
+              }
+            }
+          }
+        ]
+      },
+      {
         test: /\.html$/,
         use: [
           {
@@ -48,7 +76,10 @@ module.exports = merge(common, {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(["dist"]),
+    new CleanWebpackPlugin(["dist"], {
+      root: path.resolve(__dirname, ".."),
+      verbose: true
+    }),
     new MiniCssExtractPlugin({
       filename: "css/[name].[hash].min.css",
       chunkFilename: "css/[id].[hash].min.css"
