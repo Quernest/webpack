@@ -1,2 +1,3 @@
 # webpack
-webpack config
+
+> simple webpack configuration for building web pages

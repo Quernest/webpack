@@ -1,10 +1,35 @@
-@import 'variables';
+@font-face {
+  src: url("../fonts/Raleway.ttf") format("TrueType");
+  font-family: Raleway;
+}
 
-body {
-  background-color: $body-bg-color;
-
-  h1 {
-    text-align: center;
+* {
+  box-sizing: border-box;
+  &::before,
+  &::after {
+    box-sizing: inherit;
   }
 }
 
+html {
+  height: 100%;
+  min-height: 100%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: Raleway;
+  height: 100%;
+  margin: 0;
+  background-color: #eee;
+
+  .wrapper {
+    img {
+      border-radius: 3px;
+      max-width: 512px;
+    }
+  }
+}
