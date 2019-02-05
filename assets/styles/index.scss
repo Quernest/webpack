@@ -1,7 +1,5 @@
-@font-face {
-  src: url("../fonts/Raleway.ttf") format("TrueType");
-  font-family: Raleway;
-}
+@import "variables";
+@import "typography";
 
 * {
   box-sizing: border-box;
@@ -24,7 +22,7 @@ body {
   font-family: Raleway;
   height: 100%;
   margin: 0;
-  background-color: #eee;
+  background-color: $bg-color;
 
   .wrapper {
     img {
